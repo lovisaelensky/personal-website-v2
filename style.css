@@ -3,20 +3,117 @@
   padding: 0;
   box-sizing: border-box;
   text-decoration: none;
+  list-style: none;
+  color: #ced6f3;
+}
+html {
+  scroll-behavior: smooth;
 }
 body {
   background-color: #0e192d;
   width: 100vw;
   min-height: 100vh;
 }
+body:after {
+  top: -200px;
+  bottom: -200px;
+  right: -200px;
+  width: calc(100% + 30rem);
+  height: calc(100% + 30rem);
+  z-index: -1;
+  content: '';
+  position: fixed;
+  pointer-events: none;
+  background-position: 100%;
+  background-image: url(../images/noise.png);
+  -webkit-animation: noise 1s steps(2) infinite;
+  animation: noise 1s steps(2) infinite;
+}
+@keyframes noise {
+  0% {
+    -webkit-transform: translate3d(0, 9rem, 0);
+    transform: translate3d(0, 9rem, 0);
+  }
+  10% {
+    -webkit-transform: translate3d(-1rem, -4rem, 0);
+    transform: translate3d(-1rem, -4rem, 0);
+  }
+  20% {
+    -webkit-transform: translate3d(-8rem, 2rem, 0);
+    transform: translate3d(-8rem, 2rem, 0);
+  }
+  30% {
+    -webkit-transform: translate3d(9rem, -9rem, 0);
+    transform: translate3d(9rem, -9rem, 0);
+  }
+  40% {
+    -webkit-transform: translate3d(-2rem, 7rem, 0);
+    transform: translate3d(-2rem, 7rem, 0);
+  }
+  50% {
+    -webkit-transform: translate3d(-9rem, -4rem, 0);
+    transform: translate3d(-9rem, -4rem, 0);
+  }
+  60% {
+    -webkit-transform: translate3d(2rem, 6rem, 0);
+    transform: translate3d(2rem, 6rem, 0);
+  }
+  70% {
+    -webkit-transform: translate3d(7rem, -8rem, 0);
+    transform: translate3d(7rem, -8rem, 0);
+  }
+  80% {
+    -webkit-transform: translate3d(-9rem, 1rem, 0);
+    transform: translate3d(-9rem, 1rem, 0);
+  }
+  90% {
+    -webkit-transform: translate3d(6rem, -5rem, 0);
+    transform: translate3d(6rem, -5rem, 0);
+  }
+  to {
+    -webkit-transform: translate3d(-7rem, 0, 0);
+    transform: translate3d(-7rem, 0, 0);
+  }
+}
 .content {
   width: 90%;
+  height: 100vh;
   margin: auto;
 }
-.header {
-  height: 120px;
-  border-bottom: 2px solid white;
+
+/* Header */
+.hero {
+  height: 100vh;
+  margin-bottom: 100px;
 }
+#header {
+  height: 10%;
+  width: 90%;
+  /* border-bottom: 1px solid #ced6f3; */
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  color: #72eeda;
+  position: fixed;
+  top: 0;
+  transition: top 0.3s;
+  z-index: 3;
+}
+/* .nav-links {
+  display: flex;
+  justify-content: space-between;
+  color: #72eeda;
+} */
+#header a {
+  display: inline-block;
+  padding: 20px 0;
+  font-family: 'roboto-mono', sans-serif;
+  font-size: 0.9rem;
+  color: #72eeda;
+}
+
+/* About */
+
 .logo {
   width: fit-content;
   height: fit-content;
@@ -24,6 +121,8 @@ body {
   padding-left: 30px;
   position: relative;
   z-index: 2;
+  top: 40%;
+  transform: translateY(-50%);
 }
 span {
   display: block;
@@ -31,17 +130,17 @@ span {
 .text-filled {
   color: #ced6f3;
   font-family: 'balboa', sans-serif;
-  font-size: 5rem;
+  font-size: 7rem;
   transition: 0.1s;
 }
 .text-stroke {
   font-family: 'balboa', sans-serif;
   font-weight: 900;
-  font-size: 5rem;
+  font-size: 7rem;
   color: #0e192d;
   text-shadow: -1px -1px 0 #ced6f3, 1px -1px 0 #ced6f3, -1px 1px 0 #ced6f3,
     1px 1px 0 #ced6f3;
-  margin: -30px 0;
+  margin: -40px 0;
   transition: 0.1s;
 }
 .logo:hover .text-filled {
@@ -55,10 +154,9 @@ span {
 }
 
 .circle-animation {
-  width: 180px;
-  margin-left: 345px;
-  margin-top: -60px;
-  animation: circle 12s linear infinite;
+  margin-left: 450px;
+  margin-top: 80px;
+  animation: circle 10s linear infinite;
   z-index: 1;
 }
 @keyframes circle {
@@ -70,10 +168,42 @@ span {
   }
 }
 
+/* Portfolio */
+
+#gallery {
+  display: grid;
+  gap: 2em;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
+.work-title {
+  font-family: 'acumin-pro-wide', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 30px;
+  line-height: 27px;
+  margin-bottom: 7px;
+}
+.img-container img {
+  width: 100%;
+}
+
+.work-description {
+  display: flex;
+  justify-content: space-between;
+}
+
+.work-description .bold {
+  font-family: 'acumin-pro-wide', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+.work-description .normal {
+  font-family: 'acumin-pro-wide', sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
 @media screen and (max-width: 600px) {
-  /* body {
-    background-color: pink;
-  } */
   .text-filled {
     font-size: 4rem;
   }
@@ -81,9 +211,13 @@ span {
     font-size: 4rem;
     margin: -22px 0;
   }
+  .logo {
+    padding-left: 0;
+    margin: auto;
+  }
   .circle-animation {
     width: 140px;
-    margin-left: 290px;
+    margin-left: 100px;
     margin-top: -50px;
   }
 }
