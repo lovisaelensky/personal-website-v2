@@ -8,3 +8,21 @@ window.onscroll = function () {
   }
   prevScrollpos = currentScrollPos;
 };
+
+ScrollReveal().reveal('.work-title', {
+  origin: 'bottom',
+  distance: '50px',
+  easing: 'ease',
+  scale: '0.8',
+  reset: false,
+  delay: 100,
+});
+
+ScrollReveal().reveal('.contact-title', {
+  origin: 'bottom',
+  distance: '50px',
+  easing: 'ease',
+  scale: '0.8',
+  reset: true,
+  delay: 100,
+});
