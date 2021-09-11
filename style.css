@@ -205,9 +205,10 @@ span {
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   /* height: 100vh; */
   min-height: calc(100vh - 100px);
+  font-family: 'acumin-pro-wide', sans-serif;
+  word-wrap: break-word;
 }
 .work-title {
-  font-family: 'acumin-pro-wide', sans-serif;
   font-weight: 700;
   font-style: normal;
   font-size: 30px;
